@@ -50,6 +50,7 @@
             this.button2.TabIndex = 1;
             this.button2.Text = "Посетитель";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // label1
             // 
@@ -59,7 +60,7 @@
             this.label1.Size = new System.Drawing.Size(93, 32);
             this.label1.TabIndex = 2;
             this.label1.Text = "label1";
-            this.label1.Click += new System.EventHandler(this.label1_Click_1);
+           // this.label1.Click += new System.EventHandler(this.label1_Click_1);
             // 
             // Form1
             // 

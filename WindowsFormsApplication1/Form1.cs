@@ -23,9 +23,15 @@ namespace WindowsFormsApplication1
             this.label1.Text = "Hello dear! Let's join our fantastic festival! But first please introduce yourself";
         }
 
-        private void label1_Click_1(object sender, EventArgs e)
+        private void button2_Click(object sender, EventArgs e)
         {
-            
+            Form2 Form2 = new Form2();
+            Form2.Show();
+
         }
+
+       
+          
+
     }
 }
