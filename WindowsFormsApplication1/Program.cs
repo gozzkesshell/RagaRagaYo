@@ -26,8 +26,10 @@ namespace WindowsFormsApplication1
                 
         }
 
-        static public void BandAnswer()
+        static public void BandAnswerCreator()
         {
+            var Word = new Microsoft.Office.Interop.Word.Application();
+            Word.Documents.Open("")
 
         }
 
