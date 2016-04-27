@@ -16,5 +16,16 @@ namespace WindowsFormsApplication1
         {
             InitializeComponent();
         }
+
+        
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            this.label1.Text = "Hello dear! Let's join our fantastic festival! But first please introduce yourself";
+        }
+
+        private void label1_Click_1(object sender, EventArgs e)
+        {
+            
+        }
     }
 }
