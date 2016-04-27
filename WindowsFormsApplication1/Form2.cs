@@ -19,6 +19,7 @@ namespace WindowsFormsApplication1
             this.label2.Text = "What's your name?";
             this.label3.Text = "What's your e-mail?";
             this.label4.Text = "Choose any day. P.S.Choose all ;)";
+            this.label5.Text = "Finish?";
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
@@ -44,6 +45,14 @@ namespace WindowsFormsApplication1
         private void checkedListBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
            
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+        //    foreach (string s in checkedListBox1.CheckedItems)
+        //    {
+               
+        //    }
         }
     }
 }
