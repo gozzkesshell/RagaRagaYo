@@ -29,13 +29,13 @@ namespace WindowsFormsApplication1
 
         private void textBox_TextChanged(object sender, EventArgs e)
         {
-            if (textBox1.Text != "" && textBox2.Text != "")
+            if (textBox1.Text == "" && textBox2.Text == "")
             {
-                button1.Enabled = true;
+                button1.Enabled = false;
             }
             else
             {
-                button1.Enabled = false;
+                button1.Enabled = true;
             }
 
            
@@ -82,10 +82,21 @@ namespace WindowsFormsApplication1
             }
 
 
-            for (int i = 0; i < checkedListBox1.CheckedItems.Count; i++)
+            foreach(object item in checkedListBox1.Items)
             {
-                listBox1.Items.Add(checkedListBox1.CheckedItems[i]);
+                if (checkedListBox1.CheckedItems.Contains(item))
+                    listBox1.Items.Add(item + "TRUE");
+                if (!checkedListBox1.CheckedItems.Contains(item))
+                 {
+                    listBox1.Items.Add(item + "FALSE");
+                 }
             }
+
+
+            if (checkBox1.Checked == true)
+                listBox1.Items.Add("TentTRUE");
+            else
+                listBox1.Items.Add("TentFALSE");
 
             string filename = "Visitors.txt";
             string listboxData = "";
