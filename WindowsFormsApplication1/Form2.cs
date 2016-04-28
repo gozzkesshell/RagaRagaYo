@@ -23,21 +23,19 @@ namespace WindowsFormsApplication1
             this.label3.Text = "What's your e-mail?";
             this.label4.Text = "Choose any day. P.S.Choose all ;)";
             this.label5.Text = "Finish?";
-            this.listBox1.Location = new System.Drawing.Point(408, 64);
-            this.listBox1.Size = new System.Drawing.Size(128, 186);
-            this.listBox1.TabIndex = 3;
+            this.label6.Text = "If you need a tent please check this item";
             this.button1.Enabled = false;
         }
 
-        private void textBox1_TextChanged(object sender, EventArgs e)
+        private void textBox_TextChanged(object sender, EventArgs e)
         {
-            if (textBox1.Text == "" && textBox2.Text == "")
+            if (textBox1.Text != "" && textBox2.Text != "")
             {
-                button1.Enabled = false;
+                button1.Enabled = true;
             }
             else
             {
-                button1.Enabled = true;
+                button1.Enabled = false;
             }
 
            
@@ -65,26 +63,31 @@ namespace WindowsFormsApplication1
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if (textBox1.Text != "" || textBox2.Text != "")
+            listBox1.Items.Clear();
+
+            if (textBox1.Text != "" && textBox2.Text != "")
             {
                 if (checkedListBox1.CheckedItems.Contains(textBox1.Text) == false
-                   || checkedListBox1.CheckedItems.Contains(textBox2.Text) == false)
+                  && checkedListBox1.CheckedItems.Contains(textBox2.Text) == false)
+                
                 {
-                    checkedListBox1.Items.Add(textBox1.Text, CheckState.Checked);
-                    checkedListBox1.Items.Add(textBox2.Text, CheckState.Checked);
+                    
+                    listBox1.Items.Add(textBox1.Text);
+                    listBox1.Items.Add(textBox2.Text);
                 }
-                    textBox1.Text = "";
-                    textBox2.Text = "";
+
+                textBox1.Text = "";
+                textBox2.Text = "";
+                
             }
 
-            listBox1.Items.Clear();
 
             for (int i = 0; i < checkedListBox1.CheckedItems.Count; i++)
             {
                 listBox1.Items.Add(checkedListBox1.CheckedItems[i]);
             }
 
-            string filename = "data.txt";
+            string filename = "Visitors.txt";
             string listboxData = "";
             foreach (string str in listBox1.Items)
             {
