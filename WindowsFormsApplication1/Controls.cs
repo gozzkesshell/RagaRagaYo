@@ -42,9 +42,10 @@ namespace WindowsFormsApplication1
                 ReplaceBookmarkText(doc, item, "Fest");
                 ReplaceBookmarkText(doc, item, sh1.Cells[fromRow, "A"]);
                 ReplaceBookmarkText(doc, item, "someadress");
+
+                doc.SaveAs2((string)sh1.Cells[fromRow, "B"].Replace(" ", ""));
             }   
-            //object oBookMark = "MyBookmark";
-            //doc.Bookmarks.get_Item(ref oBookMark).Range.Text = "Some Text Here";
+          
         }
 
 
