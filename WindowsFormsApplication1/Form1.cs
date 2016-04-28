@@ -30,8 +30,10 @@ namespace WindowsFormsApplication1
 
         }
 
-       
-          
-
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Form3 Form3 = new Form3();
+            Form3.Show();
+        }
     }
 }
