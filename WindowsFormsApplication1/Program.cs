@@ -29,7 +29,9 @@ namespace WindowsFormsApplication1
         static public void BandAnswerCreator()
         {
             var Word = new Microsoft.Office.Interop.Word.Application();
-            Word.Documents.Open("")
+            Word.Documents.Open( "C:\\Users\\Gleb Naymitenko\\Documents\\WisitorTicket.docx" );
+
+
 
         }
 
