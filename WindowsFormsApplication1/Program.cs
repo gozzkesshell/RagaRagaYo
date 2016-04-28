@@ -21,24 +21,7 @@ namespace WindowsFormsApplication1
             Application.Run(new Form1());
         }
 
-        static public void WriteToExcel()
-        {
-                
-        }
-
-        static public void BandAnswerCreator()
-        {
-            var Word = new Microsoft.Office.Interop.Word.Application();
-            Word.Documents.Open( "C:\\Users\\Gleb Naymitenko\\Documents\\WisitorTicket.docx" );
-
-
-
-        }
-
-        static public void TicketCreator()
-        {
-
-        }
+       
     }
    
 }
