@@ -24,20 +24,11 @@ namespace WindowsFormsApplication1
             this.label4.Text = "Choose any day. P.S.Choose all ;)";
             this.label5.Text = "Finish?";
             this.label6.Text = "If you need a tent please check this item";
-            this.button1.Enabled = false;
+            this.button1.Enabled = true;
         }
 
-        private void textBox_TextChanged(object sender, EventArgs e)
+        private void textBox1_TextChanged(object sender, EventArgs e)
         {
-            if (textBox1.Text == "" && textBox2.Text == "")
-            {
-                button1.Enabled = false;
-            }
-            else
-            {
-                button1.Enabled = true;
-            }
-
            
         }
 
@@ -106,6 +97,8 @@ namespace WindowsFormsApplication1
             }
             listboxData += Environment.NewLine;
             File.AppendAllText(filename, listboxData);
+
+            this.Close();
 
         }
 

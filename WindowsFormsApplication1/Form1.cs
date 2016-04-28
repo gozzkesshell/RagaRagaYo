@@ -35,5 +35,15 @@ namespace WindowsFormsApplication1
             Form3 Form3 = new Form3();
             Form3.Show();
         }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
