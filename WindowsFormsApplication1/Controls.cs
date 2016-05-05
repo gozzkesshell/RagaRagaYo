@@ -8,7 +8,7 @@ using Microsoft.Office.Interop.Excel;
 
 namespace WindowsFormsApplication1
 {
-    class Controls
+    static class Controls
     {
 
         //static public void WriteToExcel()
@@ -31,20 +31,30 @@ namespace WindowsFormsApplication1
                            ref missing, ref missing, ref missing, ref missing, ref missing);
             String [] bkmrk = { "WisitorName","FestName","WisitorNumber","FestUrl" };
 
-            //int lastRow = sh1.Cells.SpecialCells(XlCellType.xlCellTypeLastCell, Type.Missing).Row;
-
+            //getting number of last used row
+            int lastRow = sh1.Cells.SpecialCells(XlCellType.xlCellTypeLastCell, Type.Missing).Row;
+            //Important data begins from 6 row
             int fromRow = 6;
-            
-            foreach(string item in bkmrk )
+
+            //Writing data from excel to word bookmarks
+            //E
+            while(fromRow <= lastRow)
             {
                 fromRow++;
-                ReplaceBookmarkText(doc, item, sh1.Cells[fromRow, "B"]);
-                ReplaceBookmarkText(doc, item, "Fest");
-                ReplaceBookmarkText(doc, item, sh1.Cells[fromRow, "A"]);
-                ReplaceBookmarkText(doc, item, "someadress");
+                foreach (string item in bkmrk)
+                {
 
-                doc.SaveAs2((string)sh1.Cells[fromRow, "B"].Replace(" ", ""));
-            }   
+                    ReplaceBookmarkText(doc, item, sh1.Cells[fromRow, "B"]);
+                    ReplaceBookmarkText(doc, item, "Fest");
+                    ReplaceBookmarkText(doc, item, sh1.Cells[fromRow, "A"]);
+                    ReplaceBookmarkText(doc, item, "someadress");
+
+                    doc.SaveAs2((string)sh1.Cells[fromRow, "B"].Replace(" ", ""));
+                }
+            }
+
+               
+
           
         }
 
@@ -71,7 +81,7 @@ namespace WindowsFormsApplication1
         }
 
 
-        //static public void TicketCreator()
+        //static public void bandResponseCreator()
         //{
 
         //}
