@@ -20,6 +20,7 @@ namespace WindowsFormsApplication1
             this.label2.Text = "What's your name?";
             this.label3.Text = "Please add link on your social network page";
             this.label4.Text = "How many songs do you want to play?";
+            this.label6.Text = "How long your show will be?";
             this.label5.Text = "Finish?";
         }
 
@@ -55,7 +56,8 @@ namespace WindowsFormsApplication1
 
             }
 
-            listBox1.Items.Add(numericUpDown1.Value.ToString());
+            listBox1.Items.Add(numericUpDown1.Value.ToString() + "SONGS");
+            listBox1.Items.Add(numericUpDown2.Value.ToString() + "TIME");
 
             string filename = "Bands.txt";
             string listboxData = "";
@@ -67,6 +69,16 @@ namespace WindowsFormsApplication1
             File.AppendAllText(filename, listboxData);
 
             this.Close();   
+
+        }
+
+        private void label6_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void numericUpDown2_ValueChanged(object sender, EventArgs e)
+        {
 
         }
     }
