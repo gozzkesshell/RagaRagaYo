@@ -45,5 +45,11 @@ namespace WindowsFormsApplication1
         {
 
         }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            Form4 Form4 = new Form4();
+            Form4.Show();
+        }
     }
 }
