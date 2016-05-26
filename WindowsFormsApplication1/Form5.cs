@@ -7,21 +7,27 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Microsoft.Office.Interop.Excel;
+using System.Data.OleDb;
+using System.IO;
+
 
 namespace WindowsFormsApplication1
 {
-    public partial class Form4 : Form
+    public partial class Form5 : Form
     {
-        public Form4()
+        public Form5()
         {
-            InitializeComponent();
+  
+
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void Form5_Load(object sender, EventArgs e)
         {
-            Form5 Form5 = new Form5();
-            Form5.Show();
+
         }
+
+       
+
+       
     }
 }

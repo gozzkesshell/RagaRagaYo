@@ -15,6 +15,14 @@ namespace WindowsFormsApplication1
 {
     public partial class Form2 : Form
     {
+        //Microsoft.Office.Interop.Excel.Application xlexcel;
+        //Microsoft.Office.Interop.Excel.Workbook xlWorkBook;
+        //Microsoft.Office.Interop.Excel.Worksheet xlWorkSheet;
+        //object misValue = System.Reflection.Missing.Value;
+
+    
+        
+
         public Form2()
         {
             InitializeComponent();
@@ -25,6 +33,10 @@ namespace WindowsFormsApplication1
             this.label5.Text = "Finish?";
             this.label6.Text = "If you need a tent please check this item";
             this.button1.Enabled = true;
+
+            
+
+
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
@@ -54,50 +66,29 @@ namespace WindowsFormsApplication1
 
         private void button1_Click(object sender, EventArgs e)
         {
-            listBox1.Items.Clear();
+           string fileExcel = "C:/Users/Евгения/Source/Repos/RagaRagaYo2/WindowsFormsApplication1/bin/Debug/Visitors.xlsx";
+           Excel.Application excelApp = new Excel.Application();
+           Excel.Workbook excelBook = excelApp.Workbooks.Open(fileExcel, 0, false, 5, "", "", false, Excel.XlPlatform.xlWindows, "", true, false, 0, true, false, false);
+           Excel.Worksheet excelSheet = (Excel.Worksheet)excelBook.ActiveSheet;
+            excelApp.Visible = true;
 
-            if (textBox1.Text != "" && textBox2.Text != "")
-            {
-                if (checkedListBox1.CheckedItems.Contains(textBox1.Text) == false
-                  && checkedListBox1.CheckedItems.Contains(textBox2.Text) == false)
-                
-                {
-                    
-                    listBox1.Items.Add(textBox1.Text);
-                    listBox1.Items.Add(textBox2.Text);
-                }
+            excelSheet.Cells[1, 1] = "Name";
+            excelSheet.Cells[1, 2] = "E-mail";
+            excelSheet.Cells[1, 3] = "Count of days";
+            excelSheet.Cells[1, 4] = "Tent";
 
-                textBox1.Text = "";
-                textBox2.Text = "";
-                
+            int _lastRow = excelSheet.Range["A" + excelSheet.Rows.Count].End[Excel.XlDirection.xlUp].Row + 1;
+
+           int i = 0;
+            foreach (int indexChecked in checkedListBox1.CheckedIndices){
+                i++;
             }
+           excelSheet.Cells[_lastRow, 1] = textBox1.Text;
+           excelSheet.Cells[_lastRow, 2] = textBox2.Text;
+           excelSheet.Cells[_lastRow, 3] = i;
+           excelSheet.Cells[_lastRow, 4] = checkBox1.Text;
 
-
-            foreach(object item in checkedListBox1.Items)
-            {
-                if (checkedListBox1.CheckedItems.Contains(item))
-                    listBox1.Items.Add(item + "TRUE");
-                if (!checkedListBox1.CheckedItems.Contains(item))
-                 {
-                    listBox1.Items.Add(item + "FALSE");
-                 }
-            }
-
-
-            if (checkBox1.Checked == true)
-                listBox1.Items.Add("TentTRUE");
-            else
-                listBox1.Items.Add("TentFALSE");
-
-            string filename = "Visitors.txt";
-            string listboxData = "";
-            foreach (string str in listBox1.Items)
-            {
-                listboxData += str + " ";
-            }
-            listboxData += Environment.NewLine;
-            File.AppendAllText(filename, listboxData);
-
+            excelBook.Save();
             this.Close();
 
         }
